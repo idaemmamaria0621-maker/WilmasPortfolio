@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Wilma Eriksdotter</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+    :root {
+      --bg-color: #F7F3EE;
+      --card-bg: #FFFFFF;
+      --accent-color: #8C4A3E;
+      --text-main: #2C2A29;
+      --text-muted: #6B6561;
+      --border-color: #E2DCD5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .slide {
+      background: var(--card-bg);
+      border-radius: 4px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 60px;
+      padding: 60px;
+      position: relative;
+      overflow: hidden;
+      min-height: 650px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .slide:nth-of-type(n + 3) {
+      background: #F3EDE5;
+    }
+
+    .slide:nth-of-type(2) {
+      background: #F3EDE5;
+    }
+
+    .project-01-slide {
+      background: #F7F4F0 !important;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 52px 58px 36px;
+      border: 0;
+      min-height: auto;
+      justify-content: flex-start;
+      margin-bottom: 36px;
+    }
+
+    .project-01-slide .slide-header {
+      border-bottom: 1px solid #E6DED7;
+      padding-bottom: 14px;
+      margin-bottom: 26px;
+      align-items: flex-end;
+    }
+
+    .project-01-slide .slide-tag {
+      color: #8A4B38;
+      letter-spacing: 0.25em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .project-01-slide .slide-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.1rem, 2.8vw, 2.8rem);
+      letter-spacing: 0.04em;
+      color: #1A1A1A;
+      font-weight: 400;
+      text-transform: none;
+      line-height: 1.08;
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      margin-bottom: 34px;
+      gap: 18px;
+    }
+
+    /* Utility: center a header title without removing the tag */
+    .slide-header.centered {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .slide-header.centered .slide-title {
+      width: 100%;
+      margin: 6px 0 0 0;
+      text-align: center;
+    }
+
+    .slide-tag {
+      font-size: 0.69rem;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .slide-title,
+    .project-01-slide .slide-title,
+    .project-02-slide .slide-title,
+    .project-03-slide .slide-title,
+    .slide-header h1,
+    .slide-header h2,
+    h2.slide-title {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: clamp(2rem, 2.5vw, 2.8rem) !important;
+      font-weight: 400 !important;
+      letter-spacing: 0.02em !important;
+      text-transform: none !important;
+      line-height: 1.08 !important;
+      color: #1A1A1A !important;
+      margin: 0 !important;
+      text-align: left !important;
+      width: 100% !important;
+    }
+
+    .slide-title.centered-title,
+    .slide-header .slide-title.centered-title {
+      text-align: center !important;
+      display: block !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+    }
+
+    h1.cover-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 3.8rem);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    h2.subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .grid-4-medium {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .grid-4-medium .img-box {
+      aspect-ratio: 1 / 1;
+      min-height: 150px;
+      padding: 0 !important;
+      width: 100%;
+    }
+
+    .grid-4-medium .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      margin: 0;
+    }
+
+    .grid-custom-text-img {
+      display: grid;
+      grid-template-columns: 1.1fr 1.5fr;
+      gap: 36px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .content-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+      line-height: 1.2;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    .content-box p {
+      font-size: 0.96rem;
+      color: var(--text-main);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+
+    .content-box {
+      max-width: 100%;
+      text-align: left;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+    }
+
+    .content-box p {
+      text-align: left !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
+    }
+
+    ul.bullet-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    ul.bullet-list li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+
+    ul.bullet-list li::before {
+      content: "•";
+      color: var(--accent-color);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .img-box {
+      background: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      position: relative;
+      overflow: hidden;
+      box-shadow: none !important;
+      padding: 0 !important;
+      box-sizing: border-box;
+      min-height: 200px;
+    }
+
+    .img-box img {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      object-fit: cover;
+      border-radius: 0;
+      z-index: 2;
+      position: relative;
+    }
+
+    .editorial-gallery .img-box,
+    .grid-4-medium .img-box,
+    .img-box[style*="background: #EAE3DD"] {
+      background: transparent !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      border: none !important;
+    }
+
+    .editorial-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: center;
+      justify-items: center;
+      max-width: 820px;
+      margin: 0 auto 10px;
+    }
+
+    .editorial-gallery .img-box {
+      aspect-ratio: 3 / 4;
+      min-height: 220px;
+      max-width: 100%;
+      padding: 0 !important;
+    }
+
+    .editorial-gallery .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .editorial-layout .content-box h3 {
+      font-size: 1.05rem;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--accent-color);
+      text-align: left;
+      margin: 6px 0 10px 0;
+      font-weight: 500;
+    }
+
+    .planning-slide .content-box h3 {
+      font-size: 1.02rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .planning-slide .grid-2 {
+      align-items: stretch;
+      gap: 28px;
+    }
+
+    .planning-slide .grid-2 .content-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      padding: 6px 8px;
+    }
+
+    .slide-footer {
+      display: none;
+    }
+
+    .cover-slide {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      background-color: #FAF7F2;
+      background-image: linear-gradient(rgba(24, 20, 18, 0.25), rgba(24, 20, 18, 0.35)), url('bild1.png');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
+    }
+
+    .cover-slide > div {
+      position: relative;
+      z-index: 1;
+      max-width: 620px;
+      padding: 30px 20px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(1px);
+    }
+
+    .cover-slide .subtitle {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .cover-slide .cover-byline {
+      color: #F7F0EA;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+    }
+
+    .cover-slide h1.cover-title {
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    .slide-brief {
+      position: relative;
+      display: block;
+    }
+
+    .brief-gallery {
+      width: 100%;
+      height: 440px;
+      gap: 18px;
+      position: relative;
+      z-index: 0;
+      margin-top: 0;
+    }
+
+    .brief-overlay {
+      position: static;
+      z-index: 2;
+      width: 100%;
+      max-width: 100%;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(140, 74, 62, 0.14);
+      box-shadow: 0 12px 26px rgba(44, 42, 41, 0.08);
+      backdrop-filter: blur(2px);
+      padding: 16px 18px;
+      border-radius: 6px;
+      color: var(--text-main);
+      margin-bottom: 18px;
+    }
+
+    .brief-overlay p,
+    .brief-overlay li {
+      text-align: left;
+      color: var(--text-main);
+    }
+
+    @media (max-width: 1024px) {
+      body {
+        padding: 30px 16px;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+
+      .slide {
+        margin-bottom: 50px;
+        padding: 40px 30px;
+        min-height: auto;
+      }
+
+      .project-01-slide,
+      .project-02-slide {
+        padding: 40px 30px;
+      }
+
+      .slide-title {
+        font-size: clamp(2rem, 2.5vw, 2.8rem) !important;
+      }
+
+      .project-01-slide .slide-title,
+      .project-02-slide .slide-title {
+        font-size: clamp(2rem, 2.5vw, 2.8rem) !important;
+      }
+
+      h1.cover-title {
+        font-size: clamp(2.4rem, 5vw, 3.2rem);
+      }
+
+      .grid-custom-text-img,
+      .grid-2,
+      .grid-3,
+      .grid-4-medium,
+      .editorial-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .project-02-slide .grid-custom-text-img,
+      .project-02-slide [style*="grid-template-columns: 1fr 1.2fr"],
+      .project-02-slide [style*="grid-template-columns: 1.05fr 1.4fr"],
+      .project-02-slide [style*="grid-template-columns: 1fr 1.25fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .project-02-slide .img-box {
+        min-height: 220px !important;
+        aspect-ratio: 4 / 3 !important;
+      }
+
+      .project-02-slide .img-box-full,
+      .img-box.img-box-full {
+        min-height: 0 !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+      }
+
+      .project-02-slide .img-box-full img,
+      .img-box.img-box-full img {
+        height: auto !important;
+        object-fit: contain !important;
+      }
+
+      .planning-slide .grid-3 {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        height: auto !important;
+      }
+
+      .planning-slide .grid-3 .img-box {
+        width: 100%;
+        aspect-ratio: 4 / 3 !important;
+        min-height: 200px !important;
+        height: auto !important;
+      }
+
+      .detail-planning-gallery,
+      .materiality-gallery,
+      .lighting-detail-gallery {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .detail-planning-gallery .img-box,
+      .materiality-gallery .img-box,
+      .lighting-detail-gallery .img-box {
+        width: 100%;
+        aspect-ratio: 4 / 3 !important;
+        min-height: 220px !important;
+        height: auto !important;
+      }
+
+      .grid-4-medium .img-box {
+        aspect-ratio: 1 / 1;
+        min-height: 120px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 12px;
+      }
+
+      .slide {
+        margin-bottom: 40px;
+        padding: 28px 20px;
+        min-height: auto;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      }
+
+      .project-01-slide,
+      .project-02-slide,
+      .project-03-slide {
+        padding: 28px 20px;
+      }
+
+      .project-03-slide {
+        padding: 0 !important;
+        min-height: 360px !important;
+        height: auto !important;
+      }
+
+      .project-03-slide.art-slide,
+      .project-03-slide .art-slide-content {
+        min-height: 360px !important;
+      }
+
+      .project-03-slide > div[style*="position: absolute"][style*="top"] {
+        top: 16px !important;
+        left: 16px !important;
+      }
+
+      .project-03-slide > div[style*="position: absolute"][style*="bottom"] {
+        left: 16px !important;
+        bottom: 16px !important;
+      }
+
+      .project-03-slide .slide-title {
+        font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+      }
+
+      .project-03-slide .art-slide-content {
+        padding: 20px 18px !important;
+      }
+
+      .project-01-slide .slide-header,
+      .project-02-slide .slide-header {
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+      }
+
+      .slide-tag {
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+      }
+
+      .slide-title {
+        font-size: clamp(2rem, 2.5vw, 2.8rem) !important;
+        letter-spacing: 0.3px !important;
+        line-height: 1.08 !important;
+      }
+
+      .project-01-slide .slide-title,
+      .project-02-slide .slide-title {
+        font-size: clamp(2rem, 2.5vw, 2.8rem) !important;
+      }
+
+      h1.cover-title {
+        font-size: clamp(2rem, 6vw, 2.8rem);
+        letter-spacing: 2px;
+      }
+
+      h2.subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+      }
+
+      .cover-slide {
+        background-image: linear-gradient(rgba(24, 20, 18, 0.42), rgba(24, 20, 18, 0.52)), url('bild1.png');
+      }
+
+      .cover-slide > div {
+        background: rgba(24, 20, 18, 0.35);
+        backdrop-filter: blur(3px);
+        padding: 28px 22px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+
+      .cover-slide .cover-byline {
+        color: #FFFFFF !important;
+        font-size: 0.92rem !important;
+        letter-spacing: 2.4px !important;
+        font-weight: 600 !important;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.65);
+      }
+
+      .grid-custom-text-img,
+      .grid-2,
+      .grid-3,
+      .grid-4-medium,
+      .editorial-gallery,
+      .detail-planning-gallery,
+      .materiality-gallery,
+      .lighting-detail-gallery {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .project-02-slide .grid-custom-text-img,
+      .project-02-slide [style*="grid-template-columns: 1fr 1.2fr"],
+      .project-02-slide [style*="grid-template-columns: 1.05fr 1.4fr"],
+      .project-02-slide [style*="grid-template-columns: 1fr 1.25fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .project-02-slide .img-box {
+        min-height: 220px !important;
+        aspect-ratio: 4 / 3 !important;
+      }
+
+      .project-02-slide .img-box-full,
+      .img-box.img-box-full {
+        min-height: 0 !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+      }
+
+      .project-02-slide .img-box-full img,
+      .img-box.img-box-full img {
+        height: auto !important;
+        object-fit: contain !important;
+      }
+
+      .planning-slide .grid-3 {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        height: auto !important;
+      }
+
+      .planning-slide .grid-3 .img-box {
+        width: 100%;
+        aspect-ratio: 4 / 3 !important;
+        min-height: 200px !important;
+        height: auto !important;
+      }
+
+      .detail-planning-gallery .img-box,
+      .materiality-gallery .img-box,
+      .lighting-detail-gallery .img-box {
+        width: 100%;
+        aspect-ratio: 4 / 3 !important;
+        min-height: 220px !important;
+        height: auto !important;
+      }
+
+      .grid-4-medium .img-box {
+        aspect-ratio: 1 / 1;
+        min-height: 120px;
+      }
+
+      .editorial-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .editorial-gallery .img-box {
+        aspect-ratio: 3 / 4;
+        min-height: 200px;
+        max-width: 100%;
+      }
+
+      .img-box {
+        aspect-ratio: 4 / 3;
+        min-height: 180px;
+      }
+
+      .slide-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .slide-header.centered {
+        align-items: center;
+        text-align: center;
+      }
+
+      .slide-header.centered .slide-title {
+        text-align: center;
+      }
+
+      .content-box {
+        max-width: 100%;
+      }
+
+      .content-box h3 {
+        font-size: clamp(1.05rem, 3vw, 1.2rem);
+        margin-bottom: 8px;
+      }
+
+      .content-box p {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        margin-bottom: 14px;
+      }
+
+      ul.bullet-list li {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+      }
+
+      .brief-overlay {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+      }
+
+      .art-cta {
+        padding: 16px 18px;
+        font-size: 0.9rem;
+      }
+
+      .art-cta p {
+        font-size: 0.9rem;
+      }
+
+      .planning-slide .content-box h3 {
+        font-size: 0.95rem;
+      }
+
+      .planning-slide .grid-2 {
+        gap: 16px;
+      }
+
+      .thank-you .content-box {
+        padding: 30px 24px;
+        width: 100%;
+      }
+
+      .thank-you h1.cover-title {
+        font-size: clamp(1.8rem, 5vw, 2.6rem);
+      }
+
+      .thank-you h2.subtitle {
+        font-size: 0.75rem;
+      }
+
+      .cover-slide > div {
+        padding: 20px 16px;
+      }
+
+      .mini-tag {
+        font-size: 0.65rem;
+      }
+
+      .mini-label {
+        font-size: 0.68rem;
+        padding: 10px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 16px 8px;
+      }
+
+      .slide {
+        margin-bottom: 30px;
+        padding: 20px 16px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+      }
+
+      .project-01-slide,
+      .project-02-slide,
+      .project-03-slide {
+        padding: 20px 16px;
+      }
+
+      .project-03-slide {
+        padding: 0 !important;
+        min-height: 300px !important;
+      }
+
+      .project-03-slide.art-slide,
+      .project-03-slide .art-slide-content {
+        min-height: 300px !important;
+      }
+
+      .slide-tag {
+        font-size: 0.6rem;
+        letter-spacing: 1.2px;
+      }
+
+      .slide-title {
+        font-size: clamp(2rem, 2.5vw, 2.8rem) !important;
+        letter-spacing: 0.25px !important;
+        line-height: 1.08 !important;
+      }
+
+      .project-01-slide .slide-title,
+      .project-02-slide .slide-title {
+        font-size: clamp(2rem, 2.5vw, 2.8rem) !important;
+      }
+
+      h1.cover-title {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+        letter-spacing: 1.5px;
+      }
+
+      h2.subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+      }
+
+      .cover-slide .cover-byline {
+        color: #FFFFFF !important;
+        font-size: 0.88rem !important;
+        letter-spacing: 2.2px !important;
+        font-weight: 600 !important;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+      }
+
+      .grid-custom-text-img,
+      .grid-2,
+      .grid-3,
+      .grid-4-medium,
+      .editorial-gallery,
+      .detail-planning-gallery,
+      .materiality-gallery,
+      .lighting-detail-gallery {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .project-02-slide .grid-custom-text-img,
+      .project-02-slide [style*="grid-template-columns: 1fr 1.2fr"],
+      .project-02-slide [style*="grid-template-columns: 1.05fr 1.4fr"],
+      .project-02-slide [style*="grid-template-columns: 1fr 1.25fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .project-02-slide .img-box {
+        min-height: 220px !important;
+        aspect-ratio: 4 / 3 !important;
+      }
+
+      .project-02-slide .img-box-full,
+      .img-box.img-box-full {
+        min-height: 0 !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+      }
+
+      .project-02-slide .img-box-full img,
+      .img-box.img-box-full img {
+        height: auto !important;
+        object-fit: contain !important;
+      }
+
+      .planning-slide .grid-3 {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        height: auto !important;
+      }
+
+      .planning-slide .grid-3 .img-box {
+        width: 100%;
+        aspect-ratio: 4 / 3 !important;
+        min-height: 200px !important;
+        height: auto !important;
+      }
+
+      .detail-planning-gallery .img-box,
+      .materiality-gallery .img-box,
+      .lighting-detail-gallery .img-box {
+        width: 100%;
+        aspect-ratio: 4 / 3 !important;
+        min-height: 220px !important;
+        height: auto !important;
+      }
+
+      .grid-4-medium .img-box {
+        aspect-ratio: 1 / 1;
+        min-height: 120px;
+      }
+
+      .editorial-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .editorial-gallery .img-box {
+        aspect-ratio: 3 / 4;
+        min-height: 200px;
+        max-width: 100%;
+      }
+
+      .img-box {
+        aspect-ratio: 4 / 3;
+        min-height: 180px;
+      }
+
+      .slide-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .slide-header.centered {
+        align-items: center;
+        text-align: center;
+      }
+
+      .slide-header.centered .slide-title {
+        text-align: center;
+      }
+
+      .content-box {
+        max-width: 100%;
+      }
+
+      .content-box h3 {
+        font-size: clamp(1.05rem, 3vw, 1.2rem);
+        margin-bottom: 8px;
+      }
+
+      .content-box p {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        margin-bottom: 14px;
+      }
+
+      ul.bullet-list li {
+        font-size: 0.8rem;
+        margin-bottom: 10px;
+      }
+
+      .brief-overlay {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+      }
+
+      .art-cta {
+        padding: 16px 18px;
+        font-size: 0.9rem;
+      }
+
+      .art-cta p {
+        font-size: 0.9rem;
+      }
+
+      .planning-slide .content-box h3 {
+        font-size: 0.95rem;
+      }
+
+      .planning-slide .grid-2 {
+        gap: 16px;
+      }
+
+      .thank-you .content-box {
+        padding: 30px 24px;
+        width: 100%;
+      }
+
+      .thank-you h1.cover-title {
+        font-size: clamp(1.8rem, 5vw, 2.6rem);
+      }
+
+      .thank-you h2.subtitle {
+        font-size: 0.75rem;
+      }
+
+      .cover-slide > div {
+        padding: 20px 16px;
+      }
+
+      .mini-tag {
+        font-size: 0.65rem;
+      }
+
+      .mini-label {
+        font-size: 0.68rem;
+        padding: 10px 12px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      body {
+        padding: 12px 6px;
+      }
+
+      .slide {
+        margin-bottom: 24px;
+        padding: 16px 12px;
+      }
+
+      .project-01-slide,
+      .project-02-slide,
+      .project-03-slide {
+        padding: 16px 12px;
+      }
+
+      .project-03-slide {
+        padding: 0 !important;
+        min-height: 260px !important;
+      }
+
+      .project-03-slide.art-slide,
+      .project-03-slide .art-slide-content {
+        min-height: 260px !important;
+      }
+
+      .slide-title {
+        font-size: clamp(2rem, 2.5vw, 2.8rem);
+        letter-spacing: 0.2px;
+      }
+
+      h1.cover-title {
+        font-size: clamp(1.4rem, 6vw, 1.8rem);
+        letter-spacing: 1px;
+      }
+
+      .content-box h3 {
+        font-size: 0.9rem;
+      }
+
+      .content-box p {
+        font-size: 0.78rem;
+      }
+
+      .img-box {
+        aspect-ratio: 4 / 3;
+        min-height: 110px;
+      }
+    }
+
+    .project-02-slide {
+      background: #F7F4F0 !important;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 52px 58px 36px;
+      border: 0;
+      min-height: auto;
+      justify-content: flex-start;
+      margin-bottom: 36px;
+    }
+
+    .project-02-slide .slide-header {
+      border-bottom: 1px solid #E6DED7 !important;
+      padding-bottom: 14px !important;
+      margin-bottom: 26px !important;
+      align-items: flex-end !important;
+      display: block !important;
+      width: 100% !important;
+    }
+
+    .project-02-slide .slide-tag {
+      color: #8A4B38;
+      letter-spacing: 0.25em;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .project-02-slide .slide-title {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: clamp(2rem, 2.5vw, 2.8rem) !important;
+      letter-spacing: 0.02em !important;
+      color: #1A1A1A !important;
+      font-weight: 400 !important;
+      text-transform: none !important;
+      line-height: 1.08 !important;
+      margin: 0 !important;
+      text-align: left !important;
+      display: block !important;
+      width: 100% !important;
+      padding-bottom: 0 !important;
+    }
+
+    .project-02-slide .slide-header .slide-title,
+    .project-02-slide .slide-header h2,
+    .project-02-slide h2.slide-title {
+      border-bottom: none !important;
+      padding-bottom: 0 !important;
+    }
+
+    .project-02-slide .content-box {
+      background: transparent;
+      box-shadow: none;
+      border: none;
+      max-width: 100%;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      text-align: left;
+    }
+
+    .project-02-slide .content-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.22rem;
+      color: #222222;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+      line-height: 1.15;
+      font-weight: 600;
+    }
+
+    .project-02-slide .content-box p {
+      font-size: 0.95rem;
+      color: #222222;
+      line-height: 1.6;
+      max-width: 65ch;
+      margin-bottom: 18px;
+    }
+
+    .project-02-slide .grid-2,
+    .project-02-slide .grid-3,
+    .project-02-slide .grid-4-medium {
+      width: 100%;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .project-02-slide .grid-2 {
+      gap: 32px;
+    }
+
+    .project-02-slide .img-box {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      overflow: hidden;
+    }
+
+    .project-02-slide .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .project-02-slide .img-box-full,
+    .img-box.img-box-full {
+      height: auto !important;
+      min-height: 0 !important;
+      aspect-ratio: auto !important;
+      overflow: visible !important;
+    }
+
+    .project-02-slide .img-box-full img,
+    .img-box.img-box-full img {
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      display: block;
+    }
+
+    .project-03-slide {
+      background: #F7F4F0 !important;
+      box-shadow: none;
+      border-radius: 0;
+      border: 0;
+      padding: 0;
+      min-height: 620px;
+    }
+
+    .project-03-slide.art-slide {
+      min-height: 620px;
+    }
+
+    .project-03-slide .art-slide-content {
+      min-height: 620px;
+      box-sizing: border-box;
+    }
+
+    .project-03-slide .slide-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 3vw, 3.6rem);
+      letter-spacing: 0.04em;
+      color: #1F2A44;
+      font-weight: 400;
+      text-transform: none;
+      line-height: 1.08;
+    }
+
+    .project-03-slide .art-cta {
+      max-width: 660px;
+      background: rgba(31, 42, 68, 0.78);
+      border: 1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(2px);
+      padding: 22px 24px;
+      border-radius: 8px;
+      color: #EAF1FF;
+      box-shadow: none;
+    }
+
+    .project-03-slide .art-cta p {
+      margin: 0;
+      line-height: 1.8;
+      font-size: 1rem;
+      color: #EAF1FF;
+    }
+
+    .project-03-slide .mini-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8A4B38;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .project-03-slide .mini-label {
+      display: inline-block;
+      background: rgba(31, 42, 68, 0.78);
+      border: 1px solid rgba(255,255,255,0.35);
+      padding: 12px 16px;
+      border-radius: 6px;
+      color: #EAF1FF;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .slide.thank-you {
+      background: #F7F4F0;
+      box-shadow: none;
+      border-radius: 0;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+
+    .thank-you .content-box {
+      width: min(680px, 100%);
+      background: rgba(31, 42, 68, 0.92);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 42px 34px;
+      text-align: center;
+      align-items: center !important;
+    }
+
+    .thank-you .slide-tag {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #EAF1FF;
+      opacity: 0.9;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .thank-you h1.cover-title {
+      color: #F7F4F0;
+      margin: 0;
+      font-size: clamp(3rem, 4vw, 4.5rem);
+      letter-spacing: 0.08em;
+    }
+
+    .thank-you h2.subtitle {
+      margin-top: 18px;
+      color: #EAF1FF;
+      letter-spacing: 0.18em;
+      font-size: 0.76rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 768px) {
+      .grid-custom-text-img,
+      .grid-2,
+      .grid-3,
+      .grid-4-medium,
+      .editorial-gallery,
+      [style*="grid-template-columns: 1fr 1fr"],
+      [style*="grid-template-columns: 1fr 1.2fr"],
+      [style*="grid-template-columns: 1.05fr 1.4fr"],
+      [style*="grid-template-columns: 1fr 1.25fr"],
+      [style*="grid-template-columns: repeat(2, minmax(0, 1fr))"],
+      [style*="grid-template-columns: repeat(3, minmax(0, 1fr))"],
+      [style*="grid-template-columns: repeat(4, 1fr)"] {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .img-box,
+      .grid-2 .img-box,
+      .grid-3 .img-box,
+      .grid-4-medium .img-box,
+      .editorial-gallery .img-box,
+      [style*="grid-template-columns"] .img-box {
+        width: 100% !important;
+        aspect-ratio: 4 / 3 !important;
+        min-height: 180px !important;
+        height: auto !important;
+      }
+
+      .img-box.img-box-full {
+        aspect-ratio: auto !important;
+        min-height: 0 !important;
+        height: auto !important;
+      }
+
+      .img-box.img-box-full img {
+        height: auto !important;
+        object-fit: contain !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="slide cover-slide">
+      <div>
+        <h2 class="subtitle">Selected Works</h2>
+        <h1 class="cover-title" style="margin: 20px 0;">Portfolio</h1>
+        <h2 class="subtitle cover-byline">By. Wilma Eriksdotter</h2>
+      </div>
+    </div>
+
+    <div class="slide project-01-slide">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 26px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Project 01 / May 2026</span>
+        <h2 class="slide-title" style="text-transform: none; margin: 0; text-align: left;">19 m² Apartment Renovation</h2>
+      </div>
+
+      <div style="width: 100%; max-width: 1000px; margin: 0 auto;">
+        <div style="width: 100%; max-width: none; color: #222222; line-height: 1.6; margin: 0 0 26px; text-align: left;">
+          <p style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-color); font-weight: 600; margin-bottom: 12px;">Project Brief</p>
+          <p style="margin: 0; max-width: 65ch; font-size: 0.97rem; color: #222222; text-align: left;">Transform a 19-square-metre apartment in central Stockholm into a functional, personal and visually cohesive home, while preserving the character of the original 18th-century architecture.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 34px; width: 100%; max-width: 1000px; margin: 0; color: #222222;">
+          <div>
+            <div style="font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-color); font-weight: 600; margin-bottom: 7px;">Location &amp; Period</div>
+            <p style="margin: 0; font-size: 0.9rem; line-height: 1.6; color: #222222;">Central Stockholm / 2026</p>
+          </div>
+
+          <div>
+            <div style="font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-color); font-weight: 600; margin-bottom: 7px;">Spatial Attributes</div>
+            <p style="margin: 0; font-size: 0.9rem; line-height: 1.6; color: #222222;">Two large windows, 3.5-metre-high ceilings, original period character.</p>
+          </div>
+
+          <div>
+            <div style="font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-color); font-weight: 600; margin-bottom: 7px;">Budget &amp; Scope</div>
+            <p style="margin: 0; font-size: 0.9rem; line-height: 1.6; color: #222222;">SEK 250,000 total renovation budget with a complete rework of a compact footprint.</p>
+          </div>
+
+          <div>
+            <div style="font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-color); font-weight: 600; margin-bottom: 7px;">Design Focus</div>
+            <p style="margin: 0; font-size: 0.9rem; line-height: 1.6; color: #222222;">Open-plan functionality, comfort, material cohesion and a sense of spaciousness.</p>
+          </div>
+        </div>
+
+        <div class="grid-3" style="gap: 16px; width: 100%; max-width: 1000px; margin: 28px auto 0;">
+          <div class="img-box" style="height: 320px; min-height: 320px;">
+            <img src="bild2.png" alt="Before renovation 1">
+          </div>
+          <div class="img-box" style="height: 320px; min-height: 320px;">
+            <img src="bild3.png" alt="Before renovation 2">
+          </div>
+          <div class="img-box" style="height: 320px; min-height: 320px;">
+            <img src="bild4.png" alt="Before renovation 3">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide planning-slide project-01-slide">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 24px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Layout &amp; Planning</span>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.7rem, 3vw, 4rem); line-height: 1.08; font-weight: 400; letter-spacing: 0.5px; color: #222222; margin: 0; text-transform: none;">Spatial Layout &amp; Structural Changes</h1>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 28px; gap: 34px; align-items: flex-start; max-width: 1000px; width: 100%; margin-left: auto; margin-right: auto;">
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%; display: flex; flex-direction: column; justify-content: flex-start;">
+          <h3 style="color: #222222; font-size: 1.18rem; letter-spacing: 0.2px; margin-bottom: 10px;">Wall Demolition &amp; Floor Plan</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7; max-width: 58ch;">To maximize the 19 m², I removed the wall leading to the former pantry and stripped away the old vinyl flooring. The original pantry was cramped, lacked an oven, and offered minimal counter space. Opening up the layout transformed the workflow, allowing natural light to flow freely and laying the foundation for an open-plan kitchen with the refined ambiance of a boutique hotel suite.</p>
+        </div>
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%; display: flex; flex-direction: column; justify-content: flex-start;">
+          <h3 style="color: #222222; font-size: 1.18rem; letter-spacing: 0.2px; margin-bottom: 10px;">Function &amp; Detail Planning</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.97rem; line-height: 1.8; max-width: 62ch;">My planning focused on creating a clear, balanced layout that felt generous and highly functional. Every decision was made to improve flow, storage and comfort while keeping the room visually calm and uncluttered.</p>
+        </div>
+      </div>
+
+      <div class="grid-3" style="height: 360px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1000px; width: 100%; margin: 0 auto; align-items: stretch;">
+        <div class="img-box" style="min-height: 100%;"><img src="bild5.png" alt="Bild 5"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild6.png" alt="Bild 6"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild7.png" alt="Bild 7"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild8.png" alt="Bild 8"></div>
+      </div>
+    </div>
+
+    <div class="slide planning-slide project-01-slide">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 24px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Kitchen Planning</span>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.7rem, 3vw, 4rem); line-height: 1.08; font-weight: 400; letter-spacing: 0.5px; color: #222222; margin: 0; text-transform: none;">Function &amp; Detail Planning</h1>
+      </div>
+
+      <div style="width: 100%; max-width: 1000px; margin: 0 auto 28px; text-align: left;">
+        <p style="margin: 0; max-width: 65ch; font-size: 0.97rem; color: #333333; line-height: 1.7;">Designed in IKEA Planner and refined in Canva, the layout optimizes every millimeter without feeling cluttered. I integrated full-sized functionality including a dishwasher, combi-oven, integrated storage, and strategically placed sockets to avoid visible cables. A custom window seat was crafted to maximize seating while framing the light from the windows.</p>
+      </div>
+
+      <div class="grid-2 detail-planning-gallery" style="height: 360px; gap: 16px; max-width: 1000px; width: 100%; margin: 0 auto; align-items: stretch;">
+        <div class="img-box" style="min-height: 100%;"><img src="bild9.png" alt="Bild 9"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild10.png" alt="Bild 10"></div>
+      </div>
+    </div>
+
+    <div class="slide planning-slide project-01-slide">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 24px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Kitchen Details</span>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.7rem, 3vw, 4rem); line-height: 1.08; font-weight: 400; letter-spacing: 0.5px; color: #222222; margin: 0; text-transform: none;">Lighting &amp; Details</h1>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 28px; gap: 34px; align-items: flex-start; max-width: 1000px; width: 100%; margin-left: auto; margin-right: auto;">
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%; display: flex; flex-direction: column; justify-content: flex-start;">
+          <h3 style="color: #222222; font-size: 1.18rem; letter-spacing: 0.2px; margin-bottom: 10px;">Scandinavian Classics &amp; Vintage</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7; max-width: 58ch;">I installed two small green shoemaker-style lamps—a classic Scandinavian design element. To pair with the lighting, I sourced a second-hand 1950s-style mirror with decorative brass studs, crafted by a Swedish furniture manufacturer.</p>
+        </div>
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%; display: flex; flex-direction: column; justify-content: flex-start;">
+          <h3 style="color: #222222; font-size: 1.18rem; letter-spacing: 0.2px; margin-bottom: 10px;">Integrated Shelving</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7; max-width: 58ch;">A glass shelf was added in alignment with the cooker hood to integrate the wall visually. Choosing glass introduces a subtle modern element while allowing ambient light from the lamps to shine through seamlessly.</p>
+        </div>
+      </div>
+
+      <div class="grid-3 lighting-detail-gallery" style="height: 360px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1000px; width: 100%; margin: 0 auto; align-items: stretch;">
+        <div class="img-box" style="min-height: 100%;"><img src="bild17.png" alt="Lighting detail 1"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild18.png" alt="Lighting detail 2"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild19.png" alt="Vintage detail 1"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild20.png" alt="Vintage detail 2"></div>
+      </div>
+    </div>
+
+    <div class="slide planning-slide project-01-slide">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 24px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Living Area</span>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.7rem, 3vw, 4rem); line-height: 1.08; font-weight: 400; letter-spacing: 0.5px; color: #222222; margin: 0; text-transform: none;">Back to where it all began</h1>
+      </div>
+
+      <div style="width: 100%; max-width: 1000px; margin: 0 auto 28px; text-align: left;">
+        <p style="margin: 0; max-width: 65ch; font-size: 0.97rem; color: #333333; line-height: 1.7;">Having established the kitchen, the vision for the main living area focused on restoring timeless period character. I selected dark herringbone parquet flooring, high period-style wall panelling, vintage electrical fittings, and ornate ceiling roses to create a refined, cohesive space.</p>
+      </div>
+
+      <div class="grid-2" style="height: 360px; gap: 16px; max-width: 1000px; width: 100%; margin: 0 auto; align-items: stretch;">
+        <div class="img-box" style="min-height: 100%;"><img src="bild21.png" alt="Stor bild 1"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild22.png" alt="Stor bild 2"></div>
+      </div>
+    </div>
+
+    <div class="slide planning-slide project-01-slide">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 24px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Concept</span>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.7rem, 3vw, 4rem); line-height: 1.08; font-weight: 400; letter-spacing: 0.5px; color: #222222; margin: 0; text-transform: none;">Visualization &amp; Inspiration</h1>
+      </div>
+
+      <div style="width: 100%; max-width: 1000px; margin: 0 auto 28px; text-align: left;">
+        <p style="margin: 0; max-width: 65ch; font-size: 0.97rem; color: #333333; line-height: 1.7;">To visualize the living area, the spatial layout was modeled in IKEA’s planning tool, with custom wall sconces and ambient lighting layered in Canva. Reference images below highlight the intended architectural elements: high wall panelling, dark herringbone flooring, and intricate ceiling mouldings.</p>
+      </div>
+
+      <div class="grid-3" style="height: 360px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1000px; width: 100%; margin: 0 auto; align-items: stretch;">
+        <div class="img-box" style="min-height: 100%;"><img src="bild23.png" alt="Visualization 1"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild24.png" alt="Visualization 2"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild25.png" alt="Visualization 3"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild26.png" alt="Visualization 4"></div>
+      </div>
+    </div>
+
+    <div class="slide planning-slide project-01-slide">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 24px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Process</span>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.7rem, 3vw, 4rem); line-height: 1.08; font-weight: 400; letter-spacing: 0.5px; color: #222222; margin: 0; text-transform: none;">Process &amp; Craftsmanship</h1>
+      </div>
+
+      <div class="grid-3" style="height: 360px; gap: 16px; max-width: 1000px; width: 100%; margin: 0 auto; align-items: stretch;">
+        <div class="img-box" style="min-height: 100%;"><img src="bild28.png" alt="Process 1"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild29.png" alt="Process 2"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild30.png" alt="Process 3"></div>
+      </div>
+    </div>
+
+    <div class="slide planning-slide project-01-slide" style="justify-content: flex-start; padding-top: 28px; padding-bottom: 28px;">
+      <div class="grid-2" style="height: 360px; gap: 16px; max-width: 1000px; width: 100%; margin: 0 auto; align-items: stretch;">
+        <div class="img-box" style="min-height: 100%;"><img src="bild31.png" alt="Full-bleed 1" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild32.png" alt="Full-bleed 2" style="width:100%; height:100%; object-fit:cover;"></div>
+      </div>
+    </div>
+
+    <div class="slide planning-slide project-01-slide" style="justify-content: flex-start;">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 18px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Outcome</span>
+        <h1 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.7rem, 3vw, 4rem); line-height: 1.08; font-weight: 400; letter-spacing: 0.5px; color: #222222; margin: 0; text-transform: none;">The Results</h1>
+      </div>
+
+      <div class="grid-2" style="height: 360px; gap: 16px; max-width: 1000px; width: 100%; margin: 0 auto; align-items: stretch;">
+        <div class="img-box" style="min-height: 100%;"><img src="bild33.png" alt="Result 1" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild34.png" alt="Result 2" style="width:100%; height:100%; object-fit:cover;"></div>
+      </div>
+    </div>
+
+    <div class="slide planning-slide project-01-slide" style="justify-content: flex-start; padding-top: 28px; padding-bottom: 28px; margin-bottom: 36px;">
+      <div class="grid-3" style="height: 360px; gap: 16px; max-width: 1000px; width: 100%; margin: 0 auto; align-items: stretch;">
+        <div class="img-box" style="min-height: 100%;"><img src="bild35.png" alt="Full-bleed A" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild36.png" alt="Full-bleed B" style="width:100%; height:100%; object-fit:cover;"></div>
+        <div class="img-box" style="min-height: 100%;"><img src="bild37.png" alt="Full-bleed C" style="width:100%; height:100%; object-fit:cover;"></div>
+      </div>
+    </div>
+
+    <div class="slide project-02-slide" style="padding: 52px 58px 36px;">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 26px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Project 02 / Fall 2024</span>
+        <h2 class="slide-title" style="text-transform: none; margin: 0; text-align: left;">Lounge Revitalisation</h2>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 28px; gap: 34px; align-items: flex-start; max-width: 1000px; width: 100%; margin-left: auto; margin-right: auto;">
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%;">
+          <h3 style="text-align: left; margin-bottom: 10px; font-size: 1.18rem;">The Challenge</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7;">Located in a commercial property, this lounge was originally designed as a communal meeting point for building tenants. However, due to cold acoustics, stark lighting, and a lack of tactile warmth, the space remained underutilized.</p>
+        </div>
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%;">
+          <h3 style="text-align: left; margin-bottom: 10px; font-size: 1.18rem;">Objective &amp; Scope</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7;">I independently initiated, pitched, and presented a redesign proposal to the property manager. The goal was to transform the stark lounge into an inviting, harmonious hub through strategic material curation, acoustic management, and warm accent lighting.</p>
+        </div>
+      </div>
+
+      <div class="img-box img-box-full" style="max-width: 1000px; width: 100%; margin: 0 auto; background: transparent; border: none; padding: 0; height: auto; min-height: 0; overflow: visible;">
+        <img src="lounge.png" alt="Lounge before redesign" style="width: 100%; height: auto; object-fit: contain; border-radius: 2px; display: block;">
+      </div>
+    </div>
+
+    <div class="slide project-02-slide" style="padding: 52px 58px 36px;">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 26px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Material Curation</span>
+        <h2 class="slide-title" style="text-transform: none; margin: 0; text-align: left;">Furniture &amp; Material Curation</h2>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 28px; gap: 34px 40px; align-items: flex-start; max-width: 1000px; width: 100%; margin-left: auto; margin-right: auto;">
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%;">
+          <h3 style="text-align: left; margin-bottom: 10px; font-size: 1.18rem;">Metal Coffee Table</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7;">Selected to complement the metal elements in the existing seating area.</p>
+        </div>
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%;">
+          <h3 style="text-align: left; margin-bottom: 10px; font-size: 1.18rem;">Walnut &amp; Polished Coffee Table</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7;">A natural material that creates a calm feel and complements the room's lighting.</p>
+        </div>
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%;">
+          <h3 style="text-align: left; margin-bottom: 10px; font-size: 1.18rem;">Textiles</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7;">Curated to create a calm, softer atmosphere—including two yellow cushions, one green cushion, one dark grey cushion, a light green rug, and a purple pouffe.</p>
+        </div>
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%;">
+          <h3 style="text-align: left; margin-bottom: 10px; font-size: 1.18rem;">Yellow Table Lamp</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7;">Added to introduce an additional light source and complement the yellow cushions.</p>
+        </div>
+      </div>
+
+      <div class="img-box" style="height: 360px; min-height: 360px; max-width: 1000px; width: 100%; margin: 0 auto; background: transparent; border: none; padding: 0;">
+        <img src="lounge1.png" alt="Furniture and material curation" style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
+      </div>
+    </div>
+
+    <div class="slide project-02-slide" style="padding: 52px 58px 36px;">
+      <div class="slide-header" style="display: block; border-bottom: 1px solid #E6DED7; padding-bottom: 14px; margin-bottom: 26px;">
+        <span class="slide-tag" style="display: block; margin-bottom: 10px;">Outcome</span>
+        <h2 class="slide-title" style="text-transform: none; margin: 0; text-align: left;">The Result</h2>
+      </div>
+
+      <div class="grid-2" style="margin-bottom: 28px; gap: 34px; align-items: flex-start; max-width: 1000px; width: 100%; margin-left: auto; margin-right: auto;">
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%;">
+          <h3 style="text-align: left; margin-bottom: 10px; font-size: 1.18rem;">Acoustic &amp; Visual Transformation</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7;">By introducing a large textured rug and soft furnishings, the room's harsh acoustic bounce was mitigated. The cold white wall was repainted in a warmer tone to frame the seating area, creating a clear visual anchor.</p>
+        </div>
+        <div class="content-box" style="text-align: left; max-width: 100%; width: 100%;">
+          <h3 style="text-align: left; margin-bottom: 10px; font-size: 1.18rem;">Functional Success</h3>
+          <p style="margin: 0; color: #333333; font-size: 0.95rem; line-height: 1.7;">The addition of warm wood textures, rich accent tones, and layered lighting successfully converted an unused transitional area into a welcoming, highly frequented tenant lounge.</p>
+        </div>
+      </div>
+
+      <div class="img-box img-box-full" style="max-width: 1000px; width: 100%; margin: 0 auto; background: transparent; border: none; padding: 0; height: auto; min-height: 0; overflow: visible;">
+        <img src="lounge2.png" alt="Lounge transformed result" style="width: 100%; height: auto; object-fit: contain; border-radius: 2px; display: block;">
+      </div>
+    </div>
+
+    <div class="slide project-03-slide art-slide" style="position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; z-index: 0;">
+        <img src="sketcherna.png" alt="Art and sketches" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+
+      <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(27, 25, 24, 0.10), rgba(27, 25, 24, 0.20));"></div>
+
+      <div style="position: absolute; top: 26px; left: 28px; z-index: 2;">
+        <div class="mini-tag">Selected Works / Art</div>
+        <h2 class="slide-title" style="text-align: left; text-transform: none; letter-spacing: 1px; font-size: clamp(2.2rem, 3vw, 3.6rem); color: #1F2A44; margin: 0;">Art &amp; Sketches</h2>
+      </div>
+
+      <div style="position: relative; z-index: 2; display: flex; align-items: flex-end; justify-content: flex-start; width: 100%; height: 100%; padding: 38px 42px;" class="art-slide-content">
+        <div class="art-cta">
+          <p>I have included a selection of drawings, sketches, and paintings that, in my opinion, best represent my style and artistic identity.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide project-03-slide art-slide" style="position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; z-index: 0;">
+        <img src="hej1.png" alt="Final image" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+
+    <div class="slide project-03-slide art-slide" style="position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; z-index: 0;">
+        <img src="sketcher.png" alt="Final image 2" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+
+      <div style="position: absolute; left: 28px; bottom: 28px; z-index: 1;">
+        <div class="mini-label">Lead pencils, ink and watercolor pencils</div>
+      </div>
+    </div>
+
+    <div class="slide project-03-slide art-slide" style="position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; z-index: 0;">
+        <img src="hejhej.png" alt="Final image 3" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+
+      <div style="position: absolute; left: 28px; bottom: 28px; z-index: 1;">
+        <div class="mini-label">They are all A4 prints with ink.</div>
+      </div>
+    </div>
+
+    <div class="slide thank-you">
+      <div class="content-box">
+        <div class="slide-tag">Portfolio</div>
+        <h1 class="cover-title">Thank You!</h1>
+        <h2 class="subtitle" style="margin-top: 18px;">Wilma Eriksdotter — Interior Design Portfolio</h2>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
